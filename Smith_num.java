@@ -3,12 +3,12 @@ public class Smith_num
 {
     boolean prime (int num)
     {
-        int factor=0;
-        for(int count=1; count<=num; count++){
-            if(num%count==0)
-                factor++;
+        int dividend=0;
+        for(int factor=1; factor<=num; factor++){
+            if(num%factor==0)
+                dividend++;
         }
-        if (factor==2)
+        if (dividend==2)
             return true;
         else
             return false;
@@ -28,25 +28,24 @@ public class Smith_num
         return add;
     }
 
-    int factorisation(int factor)
+    int factorisation(int dividend)
     {
-        Smith_num opt=new Smith_num();//object
-        int count=2, res=0;//initialisation
-        while (factor>1)//repeats until factor is 1
+        int factor=2, add=0;//initialisation
+        while (dividend>1)//repeats until dividend is 1
         {
-            count=2;            
-            while (factor%count!=0)//checks if the var count is divisible with the main number
+            factor=2;            
+            while (dividend%factor!=0)//checks if the var factor is divisible with the main number
             {
-                count++;//if not divisible, changes the divisior by 1;
+                factor++;//if not divisible, changes the divisior by 1;
             }
-            factor=factor/count;//reduces the factor to the divided value
-            if(opt.prime(count))//checks If prime
-                res=res+opt.add(count);//keeps the factor adding to it
+            dividend=dividend/factor;//reduces the dividend to the divided value
+            if(prime(factor))//checks If prime
+                add=add+add(factor);//keeps the dividend adding to it
         }
-        return res;
+        return add;
     }
 
-    public static void main()
+    public static void smith()
     {
         Scanner sc=new Scanner(System.in);      
         Smith_num obj=new Smith_num();
