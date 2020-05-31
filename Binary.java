@@ -12,6 +12,7 @@ class Binary
             ascii=ascii/2;
             code=rem+code;
         }
+        code=1+code;
         return code;
     }
 
